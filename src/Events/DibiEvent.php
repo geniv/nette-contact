@@ -24,6 +24,6 @@ class DibiEvent implements IEvent
     public function update(IEventContainer $eventContainer, array $values)
     {
         // TODO: Implement update() method.
-        //Insert to dibi database...
+        //Insert to dibi database... If will be...
     }
 }
