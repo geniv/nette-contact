@@ -45,7 +45,7 @@ class EmailEvent implements IEvent
 
         $this->message = new Message;
 
-        $this->templatePath = __DIR__ . '/../ContactFormEmail.latte';   // set path
+        $this->templatePath = __DIR__ . '/EmailEvent.latte';   // set path
     }
 
 

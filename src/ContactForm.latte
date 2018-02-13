@@ -1,5 +1,7 @@
 {*{control form}*}
 
+
+
 {form form, class=>'ajax'}
     {label subject /}
     {input subject}
@@ -15,3 +17,65 @@
 
     {input submit}
 {/form}
+
+
+
+{*{form form}
+
+    <ul class="errors" n:if="$form->hasErrors()">
+        <li n:foreach="$form->errors as $error">{$error}</li>
+    </ul>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                {label subject class=>"control-label" /}
+                {input subject class=>"form-control"}
+            </div>
+            <div class="form-group">
+                {label email class=>"control-label" /}
+                {input email class=>"form-control"}
+            </div>
+            <div class="form-group">
+                {label name class=>"control-label" /}
+                {input name class=>"form-control"}
+            </div>
+            <div class="form-group">
+                {label message class=>"control-label" /}
+                {input message class=>"form-control"}
+            </div>
+            <div class="form-group">
+                {input submit, class=>"btn btn-default"}
+            </div>
+        </div>
+    </div>
+
+{/form}*}
+
+
+
+{*<form n:name="form">
+    <ul class="errors" n:if="$form->hasErrors()">
+        <li n:foreach="$form->errors as $error">{$error}</li>
+    </ul>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <label n:name="subject" class="control-label">subject: <input n:name="subject" class="form-control" /></label>
+            </div>
+            <div class="form-group">
+                <label n:name="email" class="control-label">email: <input n:name="email" class="form-control" /></label>
+            </div>
+            <div class="form-group">
+                <label n:name="name" class="control-label">name: <input n:name="name" class="form-control" /></label>
+            </div>
+            <div class="form-group">
+                <label n:name="message" class="control-label">message: <textarea n:name="message" class="form-control" /></label>
+            </div>
+            <div class="form-group">
+                <input n:name="submit" class="btn btn-default">
+            </div>
+        </div>
+    </div>
+</form>*}
