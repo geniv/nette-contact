@@ -1,42 +1,63 @@
-Nette menu content
-==================
+Nette contact
+=============
 
 Installation
 ------------
 ```sh
-$ composer require geniv/nette-menu-content
+$ composer require geniv/nette-contact
 ```
 or
 ```json
-"geniv/nette-menu-content": ">=1.0.0"
+"geniv/nette-contact": ">=1.0.0"
 ```
 
 require:
 ```json
 "php": ">=7.0.0",
 "nette/nette": ">=2.4.0",
-"dibi/dibi": ">=3.0.0",
-"geniv/nette-locale": ">=1.0.0"
+"geniv/nette-general-form": ">=1.0.0"
 ```
 
 Include in application
 ----------------------
 neon configure:
 ```neon
-services:
-    - MenuContent(%tablePrefix%mc_)
+# contact form
+contactForm:
+#   autowired: false
+#   formContainer: FormContainer
+    events:
+        - Contact\Events\EmailEvent
+        - AjaxFlashMessageEvent
+```
+in case AjaxFlashMessageEvent is dependency: `"geniv/nette-flash-message": ">=1.0.0"`
+
+neon configure extension:
+```neon
+extensions:
+    contactForm: Contact\Bridges\Nette\Extension
 ```
 
 usage:
 ```php
-protected function createComponentMenuContent(MenuContent $menuContent): MenuContent
+protected function createComponentContactForm(ContactForm $contactForm, EmailEvent $emailEvent): ContactForm
 {
-    // $menuContent->setTemplatePath(__DIR__ . '/templates/MenuContent.latte');
-    return $menuContent;
+    $emailEvent->setTemplatePath(__DIR__ . '/templates/Contact/email.latte');
+    $emailEvent->getMessage()
+        ->addTo('example@gmail.com');
+
+    $contactForm->onSuccess[] = function (array $values) {
+        $this->flashMessage('odeslano', 'success');
+//            $this['flashMessage']->redraw();
+    };
+    $contactForm->onException[] = function (ContactException $e) {
+        $this->flashMessage($e->getMessage(), 'danger');
+    };
+    return $contactForm;
 }
 ```
 
 usage:
 ```latte
-{control menuContent}
+{control contactForm}
 ```
