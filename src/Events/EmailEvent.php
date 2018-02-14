@@ -8,6 +8,7 @@ use Nette\Application\UI\ITemplateFactory;
 use Nette\Localization\ITranslator;
 use Nette\Mail\IMailer;
 use Nette\Mail\Message;
+use Nette\SmartObject;
 
 
 /**
@@ -18,9 +19,11 @@ use Nette\Mail\Message;
  */
 class EmailEvent implements IEvent
 {
+    use SmartObject;
+
     /** @var ITemplateFactory */
     private $templateFactory;
-    /** @var ITranslator class */
+    /** @var ITranslator */
     private $translator;
     /** @var IMailer */
     private $mailer;
