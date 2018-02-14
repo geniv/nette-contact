@@ -54,12 +54,10 @@ class ContactForm extends Control implements ITemplatePath
      * Set template path.
      *
      * @param string $path
-     * @return ITemplatePath
      */
-    public function setTemplatePath(string $path): ITemplatePath
+    public function setTemplatePath(string $path)
     {
         $this->templatePath = $path;
-        return $this;
     }
 
 
