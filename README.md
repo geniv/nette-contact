@@ -25,7 +25,7 @@ neon configure:
 # contact form
 contactForm:
 #   autowired: false
-#   formContainer: FormContainer
+#   formContainer: Contact\FormContainer
     events:
         - Contact\Events\EmailEvent
         - AjaxFlashMessageEvent
