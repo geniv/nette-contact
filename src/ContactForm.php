@@ -5,6 +5,7 @@ namespace Contact;
 use GeneralForm\EventContainer;
 use GeneralForm\IEventContainer;
 use GeneralForm\IFormContainer;
+use GeneralForm\ITemplatePath;
 use Nette\Application\UI\Form;
 use Nette\Localization\ITranslator;
 use Nette\Application\UI\Control;
@@ -16,7 +17,7 @@ use Nette\Application\UI\Control;
  * @author  geniv
  * @package Contact
  */
-class ContactForm extends Control
+class ContactForm extends Control implements ITemplatePath
 {
     /** @var string template path */
     private $templatePath;
@@ -53,9 +54,9 @@ class ContactForm extends Control
      * Set template path.
      *
      * @param string $path
-     * @return ContactForm
+     * @return ITemplatePath
      */
-    public function setTemplatePath(string $path): self
+    public function setTemplatePath(string $path): ITemplatePath
     {
         $this->templatePath = $path;
         return $this;
