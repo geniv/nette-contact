@@ -4,6 +4,7 @@ namespace Contact\Events;
 
 use GeneralForm\IEvent;
 use GeneralForm\IEventContainer;
+use Nette\SmartObject;
 
 
 /**
@@ -14,6 +15,8 @@ use GeneralForm\IEventContainer;
  */
 class DibiEvent implements IEvent
 {
+    use SmartObject;
+
 
     /**
      * Update.

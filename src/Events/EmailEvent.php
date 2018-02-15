@@ -4,10 +4,12 @@ namespace Contact\Events;
 
 use GeneralForm\IEvent;
 use GeneralForm\IEventContainer;
+use GeneralForm\ITemplatePath;
 use Nette\Application\UI\ITemplateFactory;
 use Nette\Localization\ITranslator;
 use Nette\Mail\IMailer;
 use Nette\Mail\Message;
+use Nette\SmartObject;
 
 
 /**
@@ -16,11 +18,13 @@ use Nette\Mail\Message;
  * @author  geniv
  * @package Contact\Events
  */
-class EmailEvent implements IEvent
+class EmailEvent implements IEvent, ITemplatePath
 {
+    use SmartObject;
+
     /** @var ITemplateFactory */
     private $templateFactory;
-    /** @var ITranslator class */
+    /** @var ITranslator */
     private $translator;
     /** @var IMailer */
     private $mailer;
@@ -64,12 +68,10 @@ class EmailEvent implements IEvent
      * Set template path.
      *
      * @param string $path
-     * @return $this
      */
-    public function setTemplatePath($path)
+    public function setTemplatePath(string $path)
     {
         $this->templatePath = $path;
-        return $this;
     }
 
 

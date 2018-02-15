@@ -19,16 +19,16 @@ use Nette\Application\UI\Control;
  */
 class ContactForm extends Control implements ITemplatePath
 {
-    /** @var string template path */
-    private $templatePath;
-    /** @var ITranslator class */
-    private $translator;
-    /** @var callback method */
-    public $onSuccess, $onException;
     /** @var IFormContainer */
     private $formContainer;
     /** @var IEventContainer */
     private $eventContainer;
+    /** @var ITranslator */
+    private $translator;
+    /** @var string */
+    private $templatePath;
+    /** @var callback */
+    public $onSuccess, $onException;
 
 
     /**
@@ -42,9 +42,9 @@ class ContactForm extends Control implements ITemplatePath
     {
         parent::__construct();
 
+        $this->formContainer = $formContainer;
         $this->eventContainer = new EventContainer($this, $events);
         $this->translator = $translator;
-        $this->formContainer = $formContainer;
 
         $this->templatePath = __DIR__ . '/ContactForm.latte';   // set path
     }
@@ -75,8 +75,7 @@ class ContactForm extends Control implements ITemplatePath
 
         $form->onSuccess[] = function (Form $form, array $values) {
             try {
-                $this->eventContainer->setValues($values);
-                $this->eventContainer->notify();
+                $this->eventContainer->notify($values);
 
                 $this->onSuccess($values);
             } catch (ContactException $e) {
