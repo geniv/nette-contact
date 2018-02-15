@@ -24,10 +24,11 @@ neon configure:
 ```neon
 # contact form
 contactForm:
-#   autowired: false
+#   autowired: true
 #   formContainer: Contact\FormContainer
     events:
         - Contact\Events\EmailEvent
+#        - Contact\Events\DibiEvent(%tablePrefix%)
         - AjaxFlashMessageEvent
 ```
 in case AjaxFlashMessageEvent is dependency: `"geniv/nette-flash-message": ">=1.0.0"`

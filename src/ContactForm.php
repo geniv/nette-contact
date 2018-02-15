@@ -75,8 +75,7 @@ class ContactForm extends Control implements ITemplatePath
 
         $form->onSuccess[] = function (Form $form, array $values) {
             try {
-                $this->eventContainer->setValues($values);
-                $this->eventContainer->notify();
+                $this->eventContainer->notify($values);
 
                 $this->onSuccess($values);
             } catch (ContactException $e) {
