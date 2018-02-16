@@ -2,6 +2,7 @@
 
 namespace Contact\Events;
 
+use GeneralForm\EventException;
 use GeneralForm\IEvent;
 use GeneralForm\IEventContainer;
 use GeneralForm\ITemplatePath;
@@ -9,6 +10,7 @@ use Nette\Application\UI\ITemplateFactory;
 use Nette\Localization\ITranslator;
 use Nette\Mail\IMailer;
 use Nette\Mail\Message;
+use Nette\Mail\SendException;
 use Nette\SmartObject;
 
 
@@ -80,6 +82,7 @@ class EmailEvent implements IEvent, ITemplatePath
      *
      * @param IEventContainer $eventContainer
      * @param array           $values
+     * @throws EventException
      */
     public function update(IEventContainer $eventContainer, array $values)
     {
@@ -94,6 +97,10 @@ class EmailEvent implements IEvent, ITemplatePath
             ->setSubject($values['subject'])
             ->setHtmlBody($template);
 
-        $this->mailer->send($this->message);
+        try {
+            $this->mailer->send($this->message);
+        } catch (SendException $e) {
+            throw new EventException($e->getMessage());
+        }
     }
 }

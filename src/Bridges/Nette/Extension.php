@@ -3,7 +3,6 @@
 namespace Contact\Bridges\Nette;
 
 use Contact\ContactForm;
-use Contact\Events\EmailEvent;
 use Contact\FormContainer;
 use GeneralForm\GeneralForm;
 use Nette\DI\CompilerExtension;
@@ -33,8 +32,8 @@ class Extension extends CompilerExtension
         $builder = $this->getContainerBuilder();
         $config = $this->validateConfig($this->defaults);
 
-        $formContainer = GeneralForm::getFormContainerDefinition($this);
-        $events = GeneralForm::getEventContainerDefinition($this);
+        $formContainer = GeneralForm::getDefinitionFormContainer($this);
+        $events = GeneralForm::getDefinitionEventContainer($this);
 
         // define form
         $builder->addDefinition($this->prefix('default'))
