@@ -43,7 +43,7 @@ class ContactForm extends Control implements ITemplatePath
         parent::__construct();
 
         $this->formContainer = $formContainer;
-        $this->eventContainer = new EventContainer($this, $events);
+        $this->eventContainer = EventContainer::factory($this, $events);
         $this->translator = $translator;
 
         $this->templatePath = __DIR__ . '/ContactForm.latte';   // set path
@@ -73,15 +73,7 @@ class ContactForm extends Control implements ITemplatePath
         $form->setTranslator($this->translator);
         $this->formContainer->getForm($form);
 
-        $form->onSuccess[] = function (Form $form, array $values) {
-            try {
-                $this->eventContainer->notify($values);
-
-                $this->onSuccess($values);
-            } catch (ContactException $e) {
-                $this->onException($e);
-            }
-        };
+        $form->onSuccess[] = $this->eventContainer;
         return $form;
     }
 
