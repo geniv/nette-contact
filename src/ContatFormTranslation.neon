@@ -1,0 +1,14 @@
+contact-form-subject: předmět
+contact-form-subject-required: předmět je vyžadován
+contact-form-email: email
+contact-form-email-required: email je vyžadován
+contact-form-email-rule-email: formát emailu není validní
+contact-form-name: jméno
+contact-form-name-required: jméno je vyžadováno
+contact-form-message: zpráva
+contact-form-message-required: zpráva je vyžadována
+contact-form-submit: odeslat
+
+contact-form-email-name: jméno
+contact-form-email-email: email
+contact-form-email-message: zpráva
