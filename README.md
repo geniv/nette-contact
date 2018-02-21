@@ -29,6 +29,7 @@ contactForm:
     events:
         - Contact\Events\EmailEvent
 #        - Contact\Events\DibiEvent(%tablePrefix%)
+        - Contact\Events\ClearFormEvent
         - AjaxFlashMessageEvent
 ```
 in case AjaxFlashMessageEvent is dependency: `"geniv/nette-flash-message": ">=1.0.0"`
