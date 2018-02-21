@@ -79,7 +79,7 @@ class ContactForm extends Control implements ITemplatePath
 
 
     /**
-     * Render default.
+     * Render.
      */
     public function render()
     {
