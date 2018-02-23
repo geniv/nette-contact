@@ -26,6 +26,10 @@ class ClearFormEvent implements IEvent
      */
     public function update(IEventContainer $eventContainer, array $values)
     {
-        $eventContainer->getForm()->setValues([], true);
+        $component = $eventContainer->getComponent();
+        if ($component->presenter->isAjax()) {
+            $component->redrawControl('wrapper');
+            $eventContainer->getForm()->reset();
+        }
     }
 }
