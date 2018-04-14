@@ -52,7 +52,7 @@ protected function createComponentContactForm(ContactForm $contactForm, EmailEve
         $this->flashMessage('odeslano', 'success');
 //            $this['flashMessage']->redraw();
     };
-    $contactForm->onException[] = function (ContactException $e) {
+    $contactForm->onException[] = function (EventException $e) {
         $this->flashMessage($e->getMessage(), 'danger');
     };
     return $contactForm;
