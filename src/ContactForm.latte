@@ -2,20 +2,24 @@
 
 
 {snippet wrapper}
-    {form form, class=>'ajax'}
-        {label subject /}
-        {input subject}
-
-        {label email /}
-        {input email}
-
-        {label name /}
-        {input name}
-
-        {label message /}
-        {input message}
-
-        {input submit}
+    {form form, class=>"ajax form-content"}
+        <div class="form-group form-group-text">
+            {label subject /}
+            {input subject, class=>"form-element"}
+        </div>
+        <div class="form-group form-group-text">
+            {label email /}
+            {input email, class=>"form-element"}
+        </div>
+        <div class="form-group form-group-text">
+            {label name /}
+            {input name, class=>"form-element"}
+        </div>
+        <div class="form-group form-group-textarea">
+            {label message /}
+            {input message, rows=>"4", class=>"form-element"}
+        </div>
+        {input submit, class=>"btn btn-ok"}
     {/form}
 {/snippet}
 
