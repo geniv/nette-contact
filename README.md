@@ -44,6 +44,7 @@ usage:
 ```php
 protected function createComponentContactForm(ContactForm $contactForm, EmailEvent $emailEvent): ContactForm
 {
+    $contactForm->setTemplatePath(__DIR__ . '/templates/Contact/contactForm.latte');
     $emailEvent->setTemplatePath(__DIR__ . '/templates/Contact/email.latte');
     $emailEvent->getMessage()
         ->addTo('example@gmail.com');
