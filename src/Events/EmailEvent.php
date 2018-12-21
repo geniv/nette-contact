@@ -3,9 +3,7 @@
 namespace Contact\Events;
 
 use GeneralForm\EventException;
-use GeneralForm\IEvent;
 use GeneralForm\IEventContainer;
-use GeneralForm\ITemplatePath;
 use Nette\Application\UI\ITemplateFactory;
 use Nette\Localization\ITranslator;
 use Nette\Mail\IMailer;
@@ -20,7 +18,7 @@ use Nette\SmartObject;
  * @author  geniv
  * @package Contact\Events
  */
-class EmailEvent implements IEvent, ITemplatePath
+class EmailEvent implements IEmailEvent
 {
     use SmartObject;
 
@@ -40,10 +38,10 @@ class EmailEvent implements IEvent, ITemplatePath
      * EmailEvent constructor.
      *
      * @param ITemplateFactory $templateFactory
-     * @param ITranslator|null $translator
      * @param IMailer          $mailer
+     * @param ITranslator|null $translator
      */
-    public function __construct(ITemplateFactory $templateFactory, ITranslator $translator = null, IMailer $mailer)
+    public function __construct(ITemplateFactory $templateFactory, IMailer $mailer, ITranslator $translator = null)
     {
         $this->templateFactory = $templateFactory;
         $this->translator = $translator;

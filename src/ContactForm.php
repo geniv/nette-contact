@@ -5,7 +5,6 @@ namespace Contact;
 use GeneralForm\EventContainer;
 use GeneralForm\IEventContainer;
 use GeneralForm\IFormContainer;
-use GeneralForm\ITemplatePath;
 use Nette\Application\UI\Form;
 use Nette\Localization\ITranslator;
 use Nette\Application\UI\Control;
@@ -17,7 +16,7 @@ use Nette\Application\UI\Control;
  * @author  geniv
  * @package Contact
  */
-class ContactForm extends Control implements ITemplatePath
+class ContactForm extends Control implements IContactForm
 {
     /** @var IFormContainer */
     private $formContainer;

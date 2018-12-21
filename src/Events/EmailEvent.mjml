@@ -10,28 +10,28 @@
         </mj-section>
         <mj-section padding="0px">
             <mj-column border-bottom="1px solid #dddddd">
-                <mj-text padding="20px 20px 5px 20px" font-family="Poppins" font-size="13px" line-height="17px">Jméno</mj-text>
+                <mj-text padding="20px 20px 5px 20px" font-family="Poppins" font-size="13px" line-height="17px">{_'contact-form-email#name'}</mj-text>
                 <mj-divider border-width="1px" border-style="dashed" border-color="lightgrey" padding="0 20px" />
                 <mj-text padding="10px 20px 20px 20px" font-family="Poppins" font-size="13px" line-height="17px">{$values['name']}</mj-text>
             </mj-column>
         </mj-section>
         <mj-section padding="0px">
             <mj-column border-bottom="1px solid #dddddd">
-                <mj-text padding="20px 20px 5px 20px" font-family="Poppins" font-size="13px" line-height="17px">E-mail</mj-text>
+                <mj-text padding="20px 20px 5px 20px" font-family="Poppins" font-size="13px" line-height="17px">{_'contact-form-email#email'}</mj-text>
                 <mj-divider border-width="1px" border-style="dashed" border-color="lightgrey" padding="0 20px" />
                 <mj-text padding="10px 20px 20px 20px" font-family="Poppins" font-size="13px" line-height="17px">{$values['email']}</mj-text>
             </mj-column>
         </mj-section>
         <mj-section padding="0px">
             <mj-column>
-                <mj-text padding="20px 20px 5px 20px" font-family="Poppins" font-size="13px" line-height="17px">Zpráva</mj-text>
+                <mj-text padding="20px 20px 5px 20px" font-family="Poppins" font-size="13px" line-height="17px">{_'contact-form-email#message'}</mj-text>
                 <mj-divider border-width="1px" border-style="dashed" border-color="lightgrey" padding="0 20px" />
                 <mj-text padding="10px 20px 20px 20px" font-family="Poppins" font-size="13px" line-height="17px">{$values['message']}</mj-text>
             </mj-column>
         </mj-section>
         <mj-section padding="0px" background-color="#f0f0f0">
             <mj-column>
-                <mj-text padding="15px 20px" font-family="Poppins" font-size="12px" line-height="14px" color="#626262">Tento email byl vygenerován na základě vyplnění formuláře v sekci "Kontakt".</mj-text>
+                <mj-text padding="15px 20px" font-family="Poppins" font-size="12px" line-height="14px" color="#626262">{_'contact-form-email#generate'}</mj-text>
             </mj-column>
         </mj-section>
     </mj-body>
