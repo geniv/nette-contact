@@ -8,14 +8,14 @@ $ composer require geniv/nette-contact
 ```
 or
 ```json
-"geniv/nette-contact": ">=1.0.0"
+"geniv/nette-contact": "^1.0"
 ```
 
 require:
 ```json
-"php": ">=7.0.0",
-"nette/nette": ">=2.4.0",
-"geniv/nette-general-form": ">=1.0.0"
+"php": ">=7.0",
+"nette/nette": ">=2.4",
+"geniv/nette-general-form": ">=1.0"
 ```
 
 Include in application
@@ -32,7 +32,7 @@ contactForm:
         - ClearFormEvent
         - AjaxFlashMessageEvent
 ```
-in case AjaxFlashMessageEvent is dependency: `"geniv/nette-flash-message": ">=1.0.0"`
+in case AjaxFlashMessageEvent is dependency: `"geniv/nette-flash-message": ">=1.0"`
 
 neon configure extension:
 ```neon
@@ -42,7 +42,7 @@ extensions:
 
 usage:
 ```php
-protected function createComponentContactForm(ContactForm $contactForm, EmailEvent $emailEvent): ContactForm
+protected function createComponentContactForm(ContactForm $contactForm, IEmailEvent $emailEvent): ContactForm
 {
     $contactForm->setTemplatePath(__DIR__ . '/templates/Contact/contactForm.latte');
     $emailEvent->setTemplatePath(__DIR__ . '/templates/Contact/email.latte');

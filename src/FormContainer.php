@@ -25,18 +25,18 @@ class FormContainer implements IFormContainer
      */
     public function getForm(Form $form)
     {
-        $form->addText('subject', 'contact-form-subject')
-            ->setRequired('contact-form-subject-required');
-        $form->addText('email', 'contact-form-email')
-            ->setRequired('contact-form-email-required')
-            ->addRule(Form::EMAIL, 'contact-form-email-rule-email');
+        $form->addText('subject', 'contact-form#subject')
+            ->setRequired('contact-form#subject-required');
+        $form->addText('email', 'contact-form#email')
+            ->setRequired('contact-form#email-required')
+            ->addRule(Form::EMAIL, 'contact-form#email-rule-email');
         //->setAttribute('autocomplete', 'off');
-        $form->addText('name', 'contact-form-name')
-            ->setRequired('contact-form-name-required');
-        $form->addTextArea('message', 'contact-form-message')
-            ->setRequired('contact-form-message-required');
+        $form->addText('name', 'contact-form#name')
+            ->setRequired('contact-form#name-required');
+        $form->addTextArea('message', 'contact-form#message')
+            ->setRequired('contact-form#message-required');
 
-        $form->addSubmit('submit', 'contact-form-submit');
+        $form->addSubmit('submit', 'contact-form#submit');
         //$form->addProtection('Vypršel časový limit, odešlete formulář znovu');
     }
 }
